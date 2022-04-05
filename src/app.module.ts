@@ -13,6 +13,9 @@ import { UsersModule } from './users/users.module';
         path: join(process.cwd(), 'src/graphql.ts'),
         outputAs: 'class',
       },
+      subscriptions: {
+        'graphql-ws': true,
+      },
     }),
     UsersModule,
   ],

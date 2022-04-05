@@ -9,7 +9,7 @@ export class UsersService {
   }
 
   findAll() {
-    return `This action returns all users`;
+    return [{ exampleField: 1 }];
   }
 
   findOne(id: number) {

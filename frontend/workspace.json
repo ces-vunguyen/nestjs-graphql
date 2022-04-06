@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "projects": {
+    "demo-graphql": "apps/demo-graphql",
+    "demo-graphql-e2e": "apps/demo-graphql-e2e"
+  },
+  "cli": {
+    "packageManager": "yarn"
+  }
+}

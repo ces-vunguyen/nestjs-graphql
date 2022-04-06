@@ -9,7 +9,7 @@ COPY package.json yarn.lock ./
 RUN yarn --pure-lockfile
 
 # Copy important files - Add ormconfig.ts here if using Typeorm
-COPY .eslintrc.js nest-cli.json tsconfig.json tsconfig.build.json ormconfig.json ./
+COPY .eslintrc.js nest-cli.json tsconfig.json tsconfig.build.json ./
 
 CMD [ "yarn", "start:dev", "--preserveWatchOutput" ]
 

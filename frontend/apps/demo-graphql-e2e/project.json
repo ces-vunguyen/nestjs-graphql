@@ -1,0 +1,28 @@
+{
+  "root": "apps/demo-graphql-e2e",
+  "sourceRoot": "apps/demo-graphql-e2e/src",
+  "projectType": "application",
+  "targets": {
+    "e2e": {
+      "executor": "@nrwl/cypress:cypress",
+      "options": {
+        "cypressConfig": "apps/demo-graphql-e2e/cypress.json",
+        "devServerTarget": "demo-graphql:serve"
+      },
+      "configurations": {
+        "production": {
+          "devServerTarget": "demo-graphql:serve:production"
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["apps/demo-graphql-e2e/**/*.{js,ts}"]
+      }
+    }
+  },
+  "tags": [],
+  "implicitDependencies": ["demo-graphql"]
+}

@@ -1,15 +1,17 @@
-version: '3.7'
+version: "3.7"
 
 services:
   backend:
     container_name: demo_graphql_backend
     restart: always
-    build: .
+    build:
+      context: ./backend
+      dockerfile: ./Dockerfile
     volumes:
-      - ./src:/var/www/demo_graphql/src
+      - ./backend/src:/var/www/demo_graphql/src
     working_dir: /var/www/demo_graphql
     ports:
-      - '3000:3000'
+      - "3000:3000"
     links:
       - mysql
     depends_on:
@@ -18,10 +20,10 @@ services:
     container_name: demo_graphql_generation
     restart: always
     build:
-      context: .
+      context: ./backend
       dockerfile: ./Dockerfile.generation
     volumes:
-      - ./src:/var/www/demo_graphql/src
+      - ./backend/src:/var/www/demo_graphql/src
     working_dir: /var/www/demo_graphql
   mysql: # Example Service
     container_name: demo_graphql_mysql
@@ -33,9 +35,17 @@ services:
       - MYSQL_PASSWORD=demo_graphql
       - MYSQL_DATABASE=demo_graphql
     ports:
-      - '3306:3306'
+      - "3306:3306"
     volumes:
-      - ./data:/var/lib/mysql
-
-volumes:
-  data:
+      - ./backend/data:/var/lib/mysql
+  frontend:
+    container_name: demo_graphql_frontend
+    restart: always
+    build:
+      context: ./frontend
+      dockerfile: ./Dockerfile
+    volumes:
+      - ./frontend:/var/www/demo_graphql
+    working_dir: /var/www/demo_graphql
+    ports:
+      - "4200:4200"

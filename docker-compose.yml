@@ -29,13 +29,13 @@ services:
     image: mysql:5.7
     environment:
       - MYSQL_ROOT_PASSWORD=root
-      - MYSQL_USER=root
+      - MYSQL_USER=demo_graphql
       - MYSQL_PASSWORD=demo_graphql
-      - MYSQL_DATABASE=demo_graphql_docker
+      - MYSQL_DATABASE=demo_graphql
     ports:
       - '3306:3306'
     volumes:
-      - data:/var/lib/mysql
+      - ./data:/var/lib/mysql
 
 volumes:
   data:

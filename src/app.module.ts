@@ -3,6 +3,8 @@ import { GraphQLModule } from '@nestjs/graphql';
 import { ApolloDriver, ApolloDriverConfig } from '@nestjs/apollo';
 import { join } from 'path';
 import { UsersModule } from './users/users.module';
+import { TypeOrmModule } from '@nestjs/typeorm';
+import { TodosModule } from './todos/todos.module';
 
 @Module({
   imports: [
@@ -17,7 +19,9 @@ import { UsersModule } from './users/users.module';
         'graphql-ws': true,
       },
     }),
+    TypeOrmModule.forRoot({ keepConnectionAlive: true }),
     UsersModule,
+    TodosModule,
   ],
 })
 export class AppModule {}

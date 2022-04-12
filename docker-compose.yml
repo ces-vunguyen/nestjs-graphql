@@ -25,7 +25,7 @@ services:
     volumes:
       - ./backend/src:/var/www/demo_graphql/src
     working_dir: /var/www/demo_graphql
-  mysql: # Example Service
+  mysql:
     container_name: demo_graphql_mysql
     restart: always
     image: mysql:5.7

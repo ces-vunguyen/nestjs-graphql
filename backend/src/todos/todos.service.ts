@@ -17,7 +17,7 @@ export class TodosService {
   }
 
   findAll() {
-    return `This action returns all todos`;
+    return this.todosRepository.find();
   }
 
   findOne(id: number) {
@@ -29,6 +29,7 @@ export class TodosService {
   }
 
   remove(id: number) {
-    return `This action removes a #${id} todo`;
+    this.todosRepository.delete(id);
+    return { id };
   }
 }

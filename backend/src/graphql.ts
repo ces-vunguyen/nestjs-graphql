@@ -29,7 +29,7 @@ export class UpdateUserInput {
 export class Todo {
     id: number;
     name?: Nullable<string>;
-    done: boolean;
+    done?: Nullable<boolean>;
     userId?: Nullable<number>;
 }
 

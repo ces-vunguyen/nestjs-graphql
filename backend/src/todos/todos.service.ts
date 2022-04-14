@@ -21,11 +21,12 @@ export class TodosService {
   }
 
   findOne(id: number) {
-    return `This action returns a #${id} todo`;
+    return this.todosRepository.findOne(id);
   }
 
-  update(id: number, updateTodoInput: UpdateTodoInput) {
-    return `This action updates a #${id} todo`;
+  async update(id: number, updateTodoInput: UpdateTodoInput) {
+    await this.todosRepository.update(id, updateTodoInput);
+    return this.findOne(id);
   }
 
   remove(id: number) {
